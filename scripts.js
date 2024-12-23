@@ -4,8 +4,15 @@ const buttons = document.querySelectorAll('button'); // Select all button elemen
 // Flags
 // Functions 
 function calculate(input) {
-    input = parseInt(input) || input;
-    console.log(input)
+    // digit 
+    if (parseInt(input)) {
+        opStr += input;
+        console.log('digit', input, opStr);
+    }
+    // operator 
+    else {
+        console.log('operator', input);
+    }
 }
 // Event Listeners 
 // Add event listeners to each button
@@ -17,4 +24,5 @@ buttons.forEach(button => {
 });
 
 // Driver 
-let stack = [];
+let stack = [0];
+let opStr = "";
