@@ -1,6 +1,7 @@
 // Constants 
 // DOM Elements 
 const buttons = document.querySelectorAll('button'); // Select all button elements
+const display = document.querySelector('.display-container');
 // Flags
 // Functions 
 function calculate(input) {
@@ -24,5 +25,8 @@ buttons.forEach(button => {
 });
 
 // Driver 
-let stack = [0];
+let res = 12345;
 let opStr = "";
+
+display.textContent = res;
+console.log(parseInt(display.textContent));
