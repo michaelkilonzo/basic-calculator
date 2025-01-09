@@ -1,20 +1,30 @@
 // Constants 
 // DOM Elements 
-const buttons = document.querySelectorAll('button'); // Select all button elements
+const buttons = document.querySelectorAll('button'); // list of all button elements
 const display = document.querySelector('.display-container');
 // Flags
 // Functions 
 function calculate(input) {
-    // digit 
-    if (parseInt(input)) {
+    // parse op digit 
+    if (parseInt(input) || input == '.') {
         opStr += input;
-        console.log('digit', input, opStr);
+        res = parseFloat(opStr);
+    }
+    else if (input == 'AC') {
+        reset()
     }
     // operator 
     else {
         console.log('operator', input);
     }
+    display.textContent = res;
 }
+
+function reset() {
+    opStr = '';
+    res = 0;
+}
+
 // Event Listeners 
 // Add event listeners to each button
 buttons.forEach(button => {
@@ -25,8 +35,8 @@ buttons.forEach(button => {
 });
 
 // Driver 
-let res = 12345;
-let opStr = "";
+var res = 0;
+var opStr = "";
 
 display.textContent = res;
 console.log(parseInt(display.textContent));
